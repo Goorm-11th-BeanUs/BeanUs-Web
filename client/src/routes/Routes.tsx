@@ -6,10 +6,10 @@ import { getRoutesByRole } from '../constants/Navigator'
 // import { POST_TYPE } from '@/constants/PostType'
 import { createBrowserRouter } from 'react-router-dom'
 import AuthLayout from '../components/layout'
+import Main from '../page/Main'
 import NotFound from '../page/NotFound'
 import Collect from '../page/collect'
 import Login from '../page/login/Login'
-import WelcomePage from '../page/welcomePage/WelcomePage'
 // import CollectHistory from '../page/collect/collectHistory'
 
 // import LoginPage from '@/page/Login'
@@ -73,16 +73,16 @@ export const ADMIN_ROLE = 'ADMIN'
 
 /** 페이지 메뉴 */
 export const PAGE_ROUTES: any[] = [
-  {
-    id: 'HOME',
-    path: INDEX_PATH,
-    index: true,
-    element: <WelcomePage />,
-    handle: {
-      name: '홈',
-      // icon: () => <DashboardIcon />,
-    },
-  },
+  // {
+  //   id: 'HOME',
+  //   path: INDEX_PATH,
+  //   index: true,
+  //   element: <Main />,
+  //   handle: {
+  //     name: '홈',
+  //     // icon: () => <DashboardIcon />,
+  //   },
+  // },
   {
     id: 'MYPAGE',
     path: MYPAGE_PATH,
@@ -123,6 +123,10 @@ export const router = (role: string) => {
   const pageRoutes = getRoutesByRole(role)
 
   return createBrowserRouter([
+    {
+      path: INDEX_PATH,
+      element: <Main />,
+    },
     {
       path: LOGIN_PATH,
       element: <Login />,
