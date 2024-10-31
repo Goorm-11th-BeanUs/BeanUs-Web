@@ -1,4 +1,4 @@
-import { Box, FormControl, MenuItem, Select, TextField, Typography } from '@mui/material'
+import { Box, Button, FormControl, MenuItem, Select, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
 import CustomTimePicker from '../../components/common/CustomTimePicker'
 import DayPicker from '../../components/common/DayPicker'
@@ -120,9 +120,9 @@ const Collect = () => {
             </Select>
           </FormControl>
           <Box display="flex" justifyContent="center">
-            <button type="submit" disabled={isLoading}>
-              수정하기
-            </button>
+            <Button variant="contained" type="submit" disabled={isLoading} size="large">
+              시작하기
+            </Button>
           </Box>
         </Box>
       </form>
