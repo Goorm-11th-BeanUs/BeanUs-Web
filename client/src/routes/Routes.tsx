@@ -11,7 +11,6 @@ import NotFound from '../page/NotFound'
 import Collect from '../page/collect'
 import Login from '../page/login/Login'
 
-import WelcomePage from '../page/welcomePage/WelcomePage'
 import CollectHistory from '../page/collect/collectHistory'
 // import CollectHistory from '../page/collect/collectHistory'
 
@@ -112,7 +111,7 @@ export const PAGE_ROUTES: any[] = [
       {
         id: 'HISTORY',
         path: 'history',
-        element: <CollectHistory></CollectHistory>,
+        element: <CollectHistory />,
         handle: {
           name: '포인트 상세',
         },
