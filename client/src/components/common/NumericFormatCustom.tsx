@@ -90,6 +90,7 @@ const NumericFormatCustom = React.forwardRef<HTMLInputElement, NumericFormatCust
               sx={{ padding: '4px', gap: '2px' }}
             >
               <StyledButton
+                type="button"
                 className={numberInputClasses.incrementButton}
                 onMouseDown={() => handleMouseDown(1)}
                 onMouseUp={handleMouseUp}
@@ -98,6 +99,7 @@ const NumericFormatCustom = React.forwardRef<HTMLInputElement, NumericFormatCust
                 <div className="arrow">+</div>
               </StyledButton>
               <StyledButton
+                type="button"
                 className={numberInputClasses.decrementButton}
                 onMouseDown={() => handleMouseDown(-1)}
                 onMouseUp={handleMouseUp}
