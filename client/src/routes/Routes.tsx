@@ -9,6 +9,8 @@ import AuthLayout from '../components/layout'
 import Main from '../page/Main'
 import NotFound from '../page/NotFound'
 import Collect from '../page/collect'
+import Login from '../page/login/Login'
+import CollectHistory from '../page/collect/collectHistory'
 
 // import LoginPage from '@/page/Login'
 // import NotFound from '@/page/NotFound'
@@ -107,7 +109,7 @@ export const PAGE_ROUTES: any[] = [
       {
         id: 'HISTORY',
         path: 'history',
-        element: <>asdfdasf</>,
+        element: <CollectHistory />,
         handle: {
           name: '포인트 상세',
         },
@@ -123,7 +125,7 @@ export const router = (role: string) => {
   return createBrowserRouter([
     {
       path: LOGIN_PATH,
-      element: <>Login</>,
+      element: <Login/>,
     },
     {
       element: <AuthLayout />,
