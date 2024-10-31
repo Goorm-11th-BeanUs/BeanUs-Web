@@ -1,6 +1,6 @@
 import { Box, IconButton, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 interface DayButtonProps {
   selected: boolean
@@ -26,10 +26,11 @@ const StyledTypography = styled(Typography)<{ selected: boolean }>(({ theme, sel
 }))
 
 interface DayPickerProps {
-  onChange?: (selectedDays: number[]) => void
+  name: string
+  onChange?: (event: { target: { name: string; value: number[] } }) => void
 }
 
-const DayPicker: React.FC<DayPickerProps> = ({ onChange }) => {
+const DayPicker = ({ name, onChange }: DayPickerProps) => {
   const [selectedDays, setSelectedDays] = useState<number[]>([])
 
   const days = [
@@ -48,7 +49,13 @@ const DayPicker: React.FC<DayPickerProps> = ({ onChange }) => {
       : [...selectedDays, dayId]
 
     setSelectedDays(newSelectedDays)
-    onChange?.(newSelectedDays)
+    // onChange?.(newSelectedDays)
+    onChange?.({
+      target: {
+        name,
+        value: newSelectedDays,
+      },
+    })
   }
 
   return (

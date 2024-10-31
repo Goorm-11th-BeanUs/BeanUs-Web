@@ -399,7 +399,7 @@ theme = createTheme(theme, {
     },
     divider: '#E6E8F0',
     primary: {
-      main: '#A3E4C2', // 더 밝은 색상으로 변경
+      main: '#26A86C', // 더 밝은 색상으로 변경
       light: '#D1F2E1', // main 색상을 기준으로 더 밝은 색상
       dark: '#71B08A', // main 색상을 기준으로 더 어두운 색상
       contrastText: '#000000', // 밝은 배경에 어울리는 어두운 텍스트 색상
