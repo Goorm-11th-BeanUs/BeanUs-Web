@@ -16,6 +16,7 @@
 // import type { TListBaseParam } from "@/type";
 import { objectToParams } from '../../utils/queryString'
 import { ICollectRequest } from '../models/collect'
+import { ILoginRequest } from '../models/login'
 
 const QueryType = {
   getList: (keys: string[], searchParams?: object | URLSearchParams) => {
@@ -25,6 +26,11 @@ const QueryType = {
   },
   getDetail: (keys: string[], id?: number | string) =>
     id !== undefined ? [...keys, `${id}`] : keys,
+  login: (keys: string[], searchParams?: object | URLSearchParams) => {
+    const params = searchParams ? objectToParams(searchParams) : null
+
+    return !!params?.size ? [...keys, params.toString()] : keys
+  },
 }
 
 export const queryKeys = {
@@ -46,6 +52,12 @@ export const queryKeys = {
       QueryType.getList([...queryKeys.COLLECT.all, url], _params),
     detail: (id: number) => QueryType.getDetail([...queryKeys.COLLECT.all], id),
   },
+  LOGIN : {
+    all:['login'] as const,
+    list: (url: string, _params?: ILoginRequest) =>
+      QueryType.getList([...queryKeys.LOGIN.all, url], _params),
+    detail:(id: number) => QueryType.getDetail([...queryKeys.LOGIN.all], id),
+  }
 
   // BANNERS: {
   //   all: ["banners"] as const,
