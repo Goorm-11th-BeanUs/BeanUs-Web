@@ -15,7 +15,7 @@ const DayButton = styled(IconButton, {
   backgroundColor: selected ? theme.palette.primary.main : 'transparent',
   border: `1px solid ${selected ? 'transparent' : theme.palette.grey[300]}`,
   '&:hover': {
-    backgroundColor: selected ? theme.palette.primary.dark : theme.palette.grey[200],
+    backgroundColor: selected ? theme.palette.grey[300] : theme.palette.primary.light,
   },
   margin: theme.spacing(0, 0.5),
 }))
