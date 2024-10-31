@@ -93,15 +93,28 @@ export const PAGE_ROUTES: any[] = [
   {
     id: 'COLLECT',
     path: '/collect',
-    element: <Collect />,
     hidden: true,
     handle: {
       name: '수거',
     },
+    children: [
+      {
+        id: 'MAIN',
+        index: true,
+        element: <Collect />,
+        hidden: true,
+      },
+      {
+        id: 'HISTORY',
+        path: 'history',
+        element: <>asdfdasf</>,
+        handle: {
+          name: '포인트 상세',
+        },
+        hidden: true,
+      },
+    ],
   },
-  {
-
-  }
 ]
 
 export const router = (role: string) => {
@@ -127,4 +140,3 @@ export const router = (role: string) => {
     },
   ])
 }
-
