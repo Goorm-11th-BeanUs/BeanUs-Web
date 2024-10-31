@@ -385,6 +385,19 @@ theme = createTheme(theme, {
       800: '#1F2937',
       900: '#111827',
     },
+    grey: {
+      50: '#F9FAFB',
+      100: '#8E8E93',
+      200: '#AEAEB2',
+      300: '#C7C7CC',
+      400: '#D1D1D6',
+      500: '#E5E5EA',
+      600: '#F2F2F7',
+      700: '#374151',
+      800: '#1F2937',
+      900: '#111827',
+    },
+
     action: {
       active: '#6B7280',
       focus: 'rgba(55, 65, 81, 0.12)',
@@ -400,7 +413,7 @@ theme = createTheme(theme, {
     divider: '#E6E8F0',
     primary: {
       main: '#26A86C', // 더 밝은 색상으로 변경
-      light: '#D1F2E1', // main 색상을 기준으로 더 밝은 색상
+      light: '#88C9AB', // main 색상을 기준으로 더 밝은 색상
       dark: '#71B08A', // main 색상을 기준으로 더 어두운 색상
       contrastText: '#000000', // 밝은 배경에 어울리는 어두운 텍스트 색상
     },

@@ -45,8 +45,6 @@ const AuthLayout = () => {
             width: '100%',
             minWidth: '1024px',
             margin: '0 auto',
-            // padding: '32px',
-            paddingBottom: '120px',
           }}
         >
           <Stack spacing={3} sx={{ width: '100%' }}>
