@@ -1,6 +1,4 @@
 import styled from '@emotion/styled'
-import { Container } from '@mui/material'
-import React from 'react'
 import kakaoLoginButton from './kakaoLoginButton.png'
 
 const LoginWraper = styled.div`
@@ -61,7 +59,7 @@ const LoginButton = styled.button`
   display: flex;
   align-items: center;
   & > img {
-    width:100%;
+    width: 100%;
   }
   &:focus {
     outline: none;
@@ -77,7 +75,7 @@ const Login = () => {
       <div>
         <LoginContainer>
           <LogoBox>
-            <img src="https://picsum.photos/200/300?random=2" />
+            <img src="logo.png" />
           </LogoBox>
           <WelcomeText>
             <h2>환영합니다</h2>

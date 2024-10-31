@@ -6,11 +6,11 @@ import { getRoutesByRole } from '../constants/Navigator'
 // import { POST_TYPE } from '@/constants/PostType'
 import { createBrowserRouter } from 'react-router-dom'
 import AuthLayout from '../components/layout'
-import Main from '../page/Main'
 import NotFound from '../page/NotFound'
 import Collect from '../page/collect'
 import Login from '../page/login/Login'
-import CollectHistory from '../page/collect/collectHistory'
+import WelcomePage from '../page/welcomePage/WelcomePage'
+// import CollectHistory from '../page/collect/collectHistory'
 
 // import LoginPage from '@/page/Login'
 // import NotFound from '@/page/NotFound'
@@ -77,7 +77,7 @@ export const PAGE_ROUTES: any[] = [
     id: 'HOME',
     path: INDEX_PATH,
     index: true,
-    element: <Main />,
+    element: <WelcomePage />,
     handle: {
       name: '홈',
       // icon: () => <DashboardIcon />,
@@ -109,7 +109,7 @@ export const PAGE_ROUTES: any[] = [
       {
         id: 'HISTORY',
         path: 'history',
-        element: <CollectHistory />,
+        element: <>History</>,
         handle: {
           name: '포인트 상세',
         },
@@ -125,7 +125,7 @@ export const router = (role: string) => {
   return createBrowserRouter([
     {
       path: LOGIN_PATH,
-      element: <Login/>,
+      element: <Login />,
     },
     {
       element: <AuthLayout />,
