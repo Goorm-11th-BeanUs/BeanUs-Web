@@ -1,5 +1,5 @@
 import { Box, FormControl, MenuItem, Select, TextField, Typography } from '@mui/material'
-import { useId, useState } from 'react'
+import { useState } from 'react'
 import CustomTimePicker from '../../components/common/CustomTimePicker'
 import DayPicker from '../../components/common/DayPicker'
 import NumericFormatCustom from '../../components/common/NumericFormatCustom'
@@ -22,7 +22,7 @@ const initialState = {
 const Collect = () => {
   const [form, setForm] = useState({
     ...initialState,
-    cafe_id: useId(),
+    cafe_id: Math.floor(Math.random() * 1000000),
   })
 
   const { errorToast } = useCustomToast()
