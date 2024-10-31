@@ -8,6 +8,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import AuthLayout from '../components/layout'
 import Main from '../page/Main'
 import NotFound from '../page/NotFound'
+import Collect from '../page/collect'
 
 // import LoginPage from '@/page/Login'
 // import NotFound from '@/page/NotFound'
@@ -89,6 +90,18 @@ export const PAGE_ROUTES: any[] = [
       name: '마이페이지',
     },
   },
+  {
+    id: 'COLLECT',
+    path: '/collect',
+    element: <Collect />,
+    hidden: true,
+    handle: {
+      name: '수거',
+    },
+  },
+  {
+
+  }
 ]
 
 export const router = (role: string) => {
@@ -114,3 +127,4 @@ export const router = (role: string) => {
     },
   ])
 }
+

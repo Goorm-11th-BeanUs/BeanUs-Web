@@ -8,6 +8,7 @@
 // import { Box, Stack } from '@mui/material'
 import { Box, Stack } from '@mui/material'
 import { Outlet } from 'react-router-dom'
+import Header from './Header'
 // import { useRecoilValue } from 'recoil'
 
 const AuthLayout = () => {
@@ -28,19 +29,20 @@ const AuthLayout = () => {
 
   return (
     <>
+      <Header />
       <div
         style={{
           display: 'flex',
           flex: '1 1 auto',
           maxWidth: '100%',
-          paddingTop: 64,
+          // paddingTop: 64,
           paddingLeft: isOpenSideBar ? 280 : 0,
+          height: '100%',
         }}
       >
         <Box
           sx={{
             width: '100%',
-            // width: '70%',
             minWidth: '1024px',
             margin: '0 auto',
             padding: '32px',
@@ -52,8 +54,8 @@ const AuthLayout = () => {
           </Stack>
         </Box>
       </div>
-      {/* <Navbar onLogOut={onLogOut} isOpenSideBar={isOpenSideBar} toggleSideBar={toggleSideBar} />
-      <Sidebar loginUserRole={loginUserRole} /> */}
+      {/* <Navbar /> */}
+      {/* <Sidebar loginUserRole={loginUserRole} /> */}
     </>
   )
 }
