@@ -1,6 +1,6 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
-import { Box, Button, IconButton, Typography } from '@mui/material'
+import { Box, Button, IconButton, Input, TextField, Typography } from '@mui/material'
 import { useRef } from 'react'
 import SwiperCore from 'swiper'
 import 'swiper/css'
@@ -57,6 +57,10 @@ const Main = () => {
               alignItems: 'flex-start',
               gap: '8px',
               color: 'white',
+              backgroundImage: 'url("main.png")',
+              backgroundSize: '100%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPositionY: '200px',
             }}
           >
             <Box
@@ -65,17 +69,20 @@ const Main = () => {
                 width: '100%',
                 justifyContent: 'center',
                 alignItems: 'center',
+                position: 'relative',
               }}
             >
               <img
                 src="service.gif"
                 style={{
                   width: '100%',
-                  height: '400px',
+                  position: 'absolute',
+                  top: 'calc(50% - 100px)',
+                  right: 'calc(50% - 300px)',
                 }}
               />
             </Box>
-            <img src="main.png" style={{ width: '90%', height: '300px' }} />
+            {/* <img src="main.png" style={{ width: '90%', height: '300px' }} /> */}
           </Box>
         </SwiperSlide>
         <SwiperSlide>
@@ -90,6 +97,10 @@ const Main = () => {
               alignItems: 'flex-start',
               gap: '8px',
               color: 'white',
+              backgroundImage: 'url("main_1.png")',
+              backgroundSize: '80%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPositionY: '500px',
             }}
           >
             <Box
@@ -99,17 +110,20 @@ const Main = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 paddingTop: '50px',
+                position: 'relative',
               }}
             >
               <img
                 src="recycle.gif"
                 style={{
                   width: '100%',
-                  height: '400px',
+                  position: 'absolute',
+                  top: '0px',
+                  right: 'calc(50% - 300px)',
                 }}
               />
             </Box>
-            <img src="main_1.png" style={{ width: '90%', height: '300px' }} />
+            {/* <img src="main_1.png" style={{ width: '90%', height: '300px' }} /> */}
           </Box>
         </SwiperSlide>
       </Swiper>
@@ -172,9 +186,13 @@ const Main = () => {
         <Typography sx={{ color: theme => theme.palette.grey[300] }} variant="h4">
           진흙속 커피 찌꺼기를 꺼내다.
         </Typography>
-        <Button size="small">
-          <img src="kakaoLoginButton.png" />
-        </Button>
+        <form noValidate autoComplete="off">
+          <TextField id="standard-basic" placeholder='아이디를 입력해주세요.' sx={{height:'50px'}}/>
+          <TextField id="standard-basic" type='password' placeholder='비밀번호를 입력해주세요.' sx={{height:'50px'}}/>
+          <Button sx={{width:'100%',background:'#000', color:'#fff', borderRadius:'8px', marginTop:'15px',height:'50px'}} >
+            로그인
+          </Button>
+        </form>
       </Box>
     </Box>
   )
