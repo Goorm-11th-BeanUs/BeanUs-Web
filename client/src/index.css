@@ -1,6 +1,7 @@
 #root {
   min-height: 300px;
   margin: 0;
+  height: 100%;
 }
 
 /*#root .ql-container.ql-snow {*/
