@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type User = {
-  cafe_id: number
+  cafe_id: string
 }
 
 const initialState: User = {
-  cafe_id: 10,
+  cafe_id: '',
 }
 
 const userReducer = createSlice({
@@ -13,7 +13,7 @@ const userReducer = createSlice({
   initialState: initialState,
   reducers: {
     setUserState(state, action: PayloadAction<User>) {
-      state.cafe_id = action.payload.cafe_id
+      state.cafe_id = action.payload
     },
   },
 })

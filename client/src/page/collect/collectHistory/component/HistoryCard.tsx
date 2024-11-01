@@ -1,15 +1,14 @@
 import styled from '@emotion/styled'
-import React from 'react'
 import PersonIcon from '@mui/icons-material/Person'
 import { Typography } from '@mui/material'
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
 import { formatDate } from '../../../../lib/dateFormat'
 
 interface HistoryCardProps {
   historyId: number
   clientName: string
   time: string
-  state: 'PENDING' | 'ACTIVE' | 'DONE'
+  status: 'READY' | 'WATING' | 'COMPLETED'
   amount: number
 }
 
@@ -68,11 +67,10 @@ const StatusTagStyled = styled.div`
 `
 
 const ContentStyled = styled.div`
-    & span {
-        font-size: 16px;
-        color:#8E8E93;
-    }
-
+  & span {
+    font-size: 16px;
+    color: #8e8e93;
+  }
 `
 
 const MiddleDot = styled.span`
@@ -82,9 +80,9 @@ const MiddleDot = styled.span`
 
 const weekList: string[] = ['일', '월', '화', '수', '목', '금', '토']
 
-const HistoryCard = ({ historyId, clientName, time, state, amount }: HistoryCardProps) => {
-  const hhmmTime: string = formatDate(time, 'HH:mm');
-  const weekStr: string = weekList[dayjs(time).day()];
+const HistoryCard = ({ historyId, clientName, time, status, amount }: HistoryCardProps) => {
+  const hhmmTime: string = formatDate(time, 'HH:mm')
+  const weekStr: string = weekList[dayjs(time).day()]
 
   return (
     <HistoryCardStyled>
@@ -100,7 +98,7 @@ const HistoryCard = ({ historyId, clientName, time, state, amount }: HistoryCard
             {clientName}
           </Typography>
           <StatusTagStyled>
-            {state === 'PENDING' && (
+            {status === 'READY' && (
               <Typography
                 variant="h5"
                 sx={{ background: '#88C9AB', borderRadius: '20px', padding: '1px 8px' }}
@@ -113,7 +111,7 @@ const HistoryCard = ({ historyId, clientName, time, state, amount }: HistoryCard
                 수거예정
               </Typography>
             )}
-            {state === 'ACTIVE' && (
+            {status === 'WATING' && (
               <Typography
                 variant="h5"
                 sx={{ background: '#26A86C', borderRadius: '20px', padding: '1px 8px' }}
@@ -126,7 +124,7 @@ const HistoryCard = ({ historyId, clientName, time, state, amount }: HistoryCard
                 진행중
               </Typography>
             )}
-            {state === 'DONE' && (
+            {status === 'COMPLETED' && (
               <Typography
                 variant="h5"
                 sx={{ background: '#D1D1D6', borderRadius: '20px', padding: '1px 8px' }}

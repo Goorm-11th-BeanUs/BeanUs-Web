@@ -1,19 +1,19 @@
 import https from '../lib/Axios/config'
 import { ILoginRequest } from './models/login'
 
-const RequestURL = '/api/account'
+const RequestURL = '/api/coffee'
 
-const loginApi = {
+const rullApi = {
   // 로그인 요청
   login: async (searchParams: ILoginRequest) => {
     const { data } = await https.post(`${RequestURL}/login`, searchParams)
     return data
   },
-  // // 상세 요청
-  // getItem: async (id: number) => {
-  //   const { data } = await https.get(`${RequestURL}/${id}`)
-  //   return data
-  // },
+  // 상세 요청
+  getItem: async (id: string) => {
+    const data = await https.get(`${RequestURL}/${id}/rule`)
+    return data
+  },
   // // 수정
   // updateItem: async (form: ICollectRequest) => {
   //   const { data } = await https.put(`${RequestURL}/${form.cafe_id}`, form)
@@ -34,4 +34,4 @@ const loginApi = {
   // },
 }
 
-export default loginApi
+export default rullApi

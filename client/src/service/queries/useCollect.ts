@@ -1,16 +1,11 @@
-// import {
-//   IPaymentSearchParam,
-//   IReservationCreateParam,
-//   IReservationSearchParam,
-//   ITouristUpdateParam,
-// } from "@/service/models/reservations";
-// import { queryKeys } from "@/service/queries";
 import { useMutation } from '@tanstack/react-query'
+import { useNavigate } from 'react-router-dom'
 import { useCustomToast } from '../../hooks/useCustomToast'
 import collectApi from '../collect'
 
 export const useCreateCollect = () => {
   const { successToast } = useCustomToast()
+  const navigate = useNavigate()
 
   const { mutate: onCreate, status } = useMutation({
     mutationFn: (params: {
@@ -22,10 +17,8 @@ export const useCreateCollect = () => {
     }) => {
       // params 구조 분해
 
-      console.log('params', params)
       const { cafe_id, collect_days, amount, position, collect_time, ...rest } = params
 
-      console.log('collect_days', collect_days)
       // 새로운 객체 생성
       const newParams = {
         cafe_id,
@@ -34,12 +27,11 @@ export const useCreateCollect = () => {
         position,
       }
 
-      console.log('newParams', newParams)
-
       return collectApi.create(newParams)
     },
     onSuccess: () => {
       successToast('수거 요청이 성공적으로 등록되었습니다.')
+      navigate('/collect/history')
     },
   })
 
@@ -47,19 +39,3 @@ export const useCreateCollect = () => {
 
   return { onCreate, isLoading }
 }
-
-// export const useUploadPost = () => {
-//   const queryClient = useQueryClient()
-//   const { mutate: onCreate, isLoading } = useMutation({
-//     mutationFn: form => PostsApi.createItem(form),
-//     onSuccess: ({ message }) => {
-//       toast.success(message)
-//       return queryClient.invalidateQueries(QueryKey.POSTS.list())
-//     },
-//   })
-
-//   return {
-//     isLoading,
-//     onCreate,
-//   }
-// }

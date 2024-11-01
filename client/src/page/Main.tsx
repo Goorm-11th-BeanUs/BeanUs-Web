@@ -1,16 +1,45 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
-import { Box, Button, IconButton, Input, TextField, Typography } from '@mui/material'
-import { useRef } from 'react'
+import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
+import { useRef, useState } from 'react'
 import SwiperCore from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useLogin } from '../service/queries/useLogin'
 
 SwiperCore.use([Navigation])
 
+const initialOptions = {
+  user_id: '',
+  password: '',
+}
+
 const Main = () => {
+  const [form, setForm] = useState(initialOptions)
+
+  // const user = useSelector((state: RootState) => state.user)
+
+  // const cafe_id = user.cafe_id
+
+  // const rull = useRull(cafe_id)
+
+  const { onCreate, isLoading } = useLogin()
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setForm({
+      ...form,
+      [name]: value,
+    })
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    onCreate(form)
+  }
+
   const swiperRef = useRef<SwiperCore>()
 
   const handlePrev = () => {
@@ -186,10 +215,34 @@ const Main = () => {
         <Typography sx={{ color: theme => theme.palette.grey[300] }} variant="h4">
           진흙속 커피 찌꺼기를 꺼내다.
         </Typography>
-        <form noValidate autoComplete="off">
-          <TextField id="standard-basic" placeholder='아이디를 입력해주세요.' sx={{height:'50px'}}/>
-          <TextField id="standard-basic" type='password' placeholder='비밀번호를 입력해주세요.' sx={{height:'50px'}}/>
-          <Button sx={{width:'100%',background:'#000', color:'#fff', borderRadius:'8px', marginTop:'15px',height:'50px'}} >
+        <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+          <TextField
+            name="user_id"
+            value={form.user_id}
+            placeholder="아이디를 입력해주세요."
+            sx={{ height: '50px' }}
+            onChange={handleChange}
+          />
+          <TextField
+            name="password"
+            value={form.password}
+            type="password"
+            placeholder="비밀번호를 입력해주세요."
+            sx={{ height: '50px' }}
+            onChange={handleChange}
+          />
+          <Button
+            type="submit"
+            disabled={isLoading}
+            sx={{
+              width: '100%',
+              background: '#000',
+              color: '#fff',
+              borderRadius: '8px',
+              marginTop: '15px',
+              height: '50px',
+            }}
+          >
             로그인
           </Button>
         </form>

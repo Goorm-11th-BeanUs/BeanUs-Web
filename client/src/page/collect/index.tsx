@@ -81,7 +81,7 @@ const Collect = () => {
             justifyContent="flex-start"
             alignItems="center"
           >
-            <Typography variant="h2">수거 정보 수정</Typography>
+            <Typography variant="h2">수거 정보 저장</Typography>
           </Box>
           <FormControl sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Typography variant="h4">수거 요일을 모두 선택해주세요.</Typography>

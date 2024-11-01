@@ -52,12 +52,24 @@ export const queryKeys = {
       QueryType.getList([...queryKeys.COLLECT.all, url], _params),
     detail: (id: number) => QueryType.getDetail([...queryKeys.COLLECT.all], id),
   },
-  LOGIN : {
-    all:['login'] as const,
+  LOGIN: {
+    all: ['login'] as const,
     list: (url: string, _params?: ILoginRequest) =>
       QueryType.getList([...queryKeys.LOGIN.all, url], _params),
-    detail:(id: number) => QueryType.getDetail([...queryKeys.LOGIN.all], id),
-  }
+    detail: (id: number) => QueryType.getDetail([...queryKeys.LOGIN.all], id),
+  },
+  RULL: {
+    all: ['rull'] as const,
+    list: (url: string, _params?: { cafeId: string }) =>
+      QueryType.getList([...queryKeys.RULL.all, url], _params),
+    detail: (id: string) => QueryType.getDetail([...queryKeys.RULL.all], id),
+  },
+  HISTORY: {
+    all: ['history'] as const,
+    list: (url: string, _params?: { cafeId: string }) =>
+      QueryType.getList([...queryKeys.HISTORY.all, url], _params),
+    detail: (id: string) => QueryType.getDetail([...queryKeys.HISTORY.all], id),
+  },
 
   // BANNERS: {
   //   all: ["banners"] as const,

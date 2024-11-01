@@ -21,7 +21,6 @@ const collectApi = {
   },
   // 추가
   create: async (form: ICollectRequest) => {
-    console.log('form', form)
     const { cafe_id, collect_days, amount, position } = form
 
     const newParams = {
