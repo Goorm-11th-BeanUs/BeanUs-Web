@@ -10,7 +10,7 @@ const Header = () => {
       const now = new Date()
       const day = now.getDate().toString().padStart(2, '0')
       const month = (now.getMonth() + 1).toString().padStart(2, '0')
-      const year = now.getFullYear()
+      // const year = now.getFullYear()
       const hours = now.getHours().toString().padStart(2, '0')
       const minutes = now.getMinutes().toString().padStart(2, '0')
       const dayOfWeek = ['일', '월', '화', '수', '목', '금', '토'][now.getDay()]

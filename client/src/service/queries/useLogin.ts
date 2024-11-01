@@ -12,15 +12,15 @@ export const useLogin = () => {
   const navigate = useNavigate()
 
   // useQuery를 함수형으로 수정
-  const fetchOtherData = async (id: string) => {
-    try {
-      const response = await rullApi.getItem(id)
-      return response
-    } catch (error) {
-      console.error('fetchOtherData error:', error)
-      throw error
-    }
-  }
+  // const fetchOtherData = async (id: string) => {
+  //   try {
+  //     const response = await rullApi.getItem(id)
+  //     return response
+  //   } catch (error) {
+  //     console.error('fetchOtherData error:', error)
+  //     throw error
+  //   }
+  // }
 
   const { mutate: onCreate, status } = useMutation({
     mutationFn: (params: { user_id: string; password: string }) => {
@@ -45,6 +45,7 @@ export const useLogin = () => {
     },
     onError: error => {
       errorToast('사용자 정보를 확인해주세요.')
+      console.error('Error fetching user data:', error)
     },
   })
 

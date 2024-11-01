@@ -13,7 +13,7 @@ const userReducer = createSlice({
   initialState: initialState,
   reducers: {
     setUserState(state, action: PayloadAction<User>) {
-      state.cafe_id = action.payload
+      state.cafe_id = action.payload.cafe_id
     },
   },
 })

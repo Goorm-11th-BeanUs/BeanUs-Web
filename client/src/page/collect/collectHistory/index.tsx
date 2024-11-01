@@ -22,42 +22,11 @@ interface History {
   amount: number
 }
 
-// const dummyData: History[] = [
-//   {
-//     history_id: 1,
-//     client_name: '성신 유치원',
-//     time: '2024-10-31T09:50:44.075770+09:00',
-//     status: 'PENDING',
-//     amount: 10,
-//   },
-//   {
-//     history_id: 2,
-//     client_name: '성신 유치원',
-//     time: '2024-10-31T09:50:44.075770+09:00',
-//     status: 'ACTIVE',
-//     amount: 10,
-//   },
-//   {
-//     history_id: 3,
-//     client_name: '성신 유치원',
-//     time: '2024-10-31T09:50:44.075770+09:00',
-//     status: 'DONE',
-//     amount: 10,
-//   },
-//   {
-//     history_id: 4,
-//     client_name: '성신 유치원',
-//     time: '2024-10-31T09:50:44.075770+09:00',
-//     status: 'PENDING',
-//     amount: 10,
-//   },
-// ]
-
-interface TabPanelProps {
-  children?: React.ReactNode
-  index: number
-  value: number
-}
+// interface TabPanelProps {
+//   children?: React.ReactNode
+//   index: number
+//   value: number
+// }
 
 function a11yProps(index: number) {
   return {
@@ -80,7 +49,7 @@ const CollectHistory = () => {
 
   const [tabState, setTabState] = useState(0)
 
-  const tabChangeHandle = (event: React.SyntheticEvent, newIndex: number) => {
+  const tabChangeHandle = (_event: React.SyntheticEvent, newIndex: number) => {
     setTabState(newIndex)
   }
 

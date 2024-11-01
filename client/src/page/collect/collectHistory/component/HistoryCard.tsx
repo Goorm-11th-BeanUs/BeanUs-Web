@@ -80,7 +80,7 @@ const MiddleDot = styled.span`
 
 const weekList: string[] = ['일', '월', '화', '수', '목', '금', '토']
 
-const HistoryCard = ({ historyId, clientName, time, status, amount }: HistoryCardProps) => {
+const HistoryCard = ({ clientName, time, status, amount }: HistoryCardProps) => {
   const hhmmTime: string = formatDate(time, 'HH:mm')
   const weekStr: string = weekList[dayjs(time).day()]
 

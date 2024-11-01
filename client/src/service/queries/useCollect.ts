@@ -17,7 +17,7 @@ export const useCreateCollect = () => {
     }) => {
       // params 구조 분해
 
-      const { cafe_id, collect_days, amount, position, collect_time, ...rest } = params
+      const { cafe_id, collect_days, amount, position, collect_time } = params
 
       // 새로운 객체 생성
       const newParams = {

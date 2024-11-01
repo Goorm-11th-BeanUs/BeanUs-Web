@@ -1,14 +1,12 @@
-import React, { useRef } from 'react'
-import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
-import ImgBox from './component/ImgBox'
+import { useRef } from 'react'
 import SwiperCore from 'swiper'
 import { Navigation, Pagination } from 'swiper/modules'
-
+import { Swiper, SwiperSlide } from 'swiper/react'
+import ImgBox from './component/ImgBox'
 
 // Import Swiper styles
 import 'swiper/css'
-import 'swiper/css/pagination';
-
+import 'swiper/css/pagination'
 
 const IMAGE1 = 'https://picsum.photos/200/300?random=1'
 const IMAGE2 = 'https://picsum.photos/200/300?random=2'
@@ -61,7 +59,9 @@ const WelcomePage = () => {
         onClick={() => {
           goToPrevSlide()
         }}
-      >이전</button>
+      >
+        이전
+      </button>
       <button
         onClick={() => {
           goToNextSlide()
