@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
-import { Box, Tab, Tabs, Typography } from '@mui/material'
+import { Box, Button, Tab, Tabs, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { useHistory } from '../../../service/queries/useHistory'
 import { RootState } from '../../../store'
 import HistoryCard from './component/HistoryCard'
@@ -70,6 +71,12 @@ const CollectHistory = () => {
   const [dummyData, setDummyData] = useState<History[]>([])
   const history = useHistory(user.cafe_id)
   // const dummyData = history.data
+
+  const navigate = useNavigate()
+
+  const handleNavigate = () => {
+    navigate('/collect')
+  }
 
   const [tabState, setTabState] = useState(0)
 
@@ -148,7 +155,11 @@ const CollectHistory = () => {
           <ReviewCard>커피연필이 되었어요!</ReviewCard>
         </Box>
         <Box sx={{ padding: '0px 32px' }}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Box
+            sx={{ borderBottom: 1, borderColor: 'divider' }}
+            display="flex"
+            justifyContent="space-between"
+          >
             <Tabs value={tabState} onChange={tabChangeHandle} aria-label="basic tabs example">
               <Tab
                 label={
@@ -178,6 +189,10 @@ const CollectHistory = () => {
                 {...a11yProps(2)}
               />
             </Tabs>
+
+            <Button variant="outlined" color="primary" size="medium" onClick={handleNavigate}>
+              수거 정보 입력
+            </Button>
           </Box>
         </Box>
         <TabPanel value={tabState} index={0}>
