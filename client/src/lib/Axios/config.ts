@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios'
 // import { LOGIN_PATH } from '../../routes/Routes'
 // import { getAccessToken, removeTokens } from '../Cookie/auth'
 
-let hasAuthError = false
+// let hasAuthError = false
 
 const https: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL as string,

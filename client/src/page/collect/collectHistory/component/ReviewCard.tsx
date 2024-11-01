@@ -1,12 +1,11 @@
 import styled from '@emotion/styled'
 import { Box, Typography } from '@mui/material'
-import dayjs from 'dayjs';
-import React from 'react'
+import dayjs from 'dayjs'
 
 const ReviewCardStyle = styled.div`
   border-radius: 15px;
   border: 1px solid #e0e0e0;
-  
+
   margin-right: 20px;
   width: calc(100% - 100px);
   display: flex;
@@ -31,27 +30,26 @@ const ReviewCardStyle = styled.div`
   }
 `
 const ArticleWrapperStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-`;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`
 
-const ReviewCard = ( {children}:any ) => {
-
-    const today = dayjs().format('YYYY.MM.DD');
+const ReviewCard = ({ children }: any) => {
+  const today = dayjs().format('YYYY.MM.DD')
   return (
     <ReviewCardStyle>
       <ArticleWrapperStyled>
         <Box display={'flex'} flexDirection={'column'} width={'100%'}>
-            <Typography variant="h5" sx={{color:'#AEAEB2',marginBottom:'5px'}}>
-                {today}
-            </Typography>
-            <Typography variant="h3" display={'flex'} flexDirection={'column'}>
-                <span>커피찌꺼기가</span>
-                <span>{children}</span>
-            </Typography>
-            <div></div>
+          <Typography variant="h5" sx={{ color: '#AEAEB2', marginBottom: '5px' }}>
+            {today}
+          </Typography>
+          <Typography variant="h3" display={'flex'} flexDirection={'column'}>
+            <span>커피찌꺼기가</span>
+            <span>{children}</span>
+          </Typography>
+          <div></div>
         </Box>
       </ArticleWrapperStyled>
       <div>
