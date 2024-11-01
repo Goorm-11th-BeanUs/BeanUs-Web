@@ -9,4 +9,13 @@ export default defineConfig({
       { find: '@', replacement: 'src' },
     ],
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://kdbda913f9220a.user-app.krampoline.com',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\//, ''),
+      },
+    },
+  },
 })
